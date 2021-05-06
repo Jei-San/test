@@ -21,3 +21,13 @@
 .Hover:hover {
   background-color: rgb(163, 163, 163);
 }
+
+.accordioncontent.show {
+  height: auto;
+  max-height: 9999px;
+  transition: all 0.5s cubic bezier(1, 0, 1, 0);
+}
+
+.accordioncontent.show p {
+  list-style-type: none;
+}

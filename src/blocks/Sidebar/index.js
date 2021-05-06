@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Sidebar.css";
 import { Line } from "./HorizontalLine.js";
 import { Side } from "./Sidebar";
@@ -8,11 +8,19 @@ import { Prof, ProfileAccountName } from "./Profile";
 import { ActionButton, AddButton } from "./Button";
 import * as IoIcons from "react-icons/io";
 import * as FaIcons from "react-icons/fa";
-import { ImCog } from "react-icons/im";
 import * as Divs from "./Divs";
 import * as Page from "./Page";
+import { AccordionData } from "./AccordionData";
 
-const index = () => {
+const Index = () => {
+  const [clicked, setClicked] = useState(false);
+
+  const toggle = (i) => {
+    if (clicked === i) {
+      return setClicked(null);
+    }
+    setClicked(i);
+  };
   return (
     <Divs.Pagecontainer>
       <Side>
@@ -43,39 +51,28 @@ const index = () => {
               </Divs.SidebarLinks>
             );
           })}
-          <Divs.SidebarLinks>
-            <Divs.DropdownSidebar>
-              <span>
-                <IoIcons.IoMdArchive />
-              </span>
-              <p>Contenido</p>
-              <span>
-                <IoIcons.IoIosArrowDown />
-              </span>
-            </Divs.DropdownSidebar>
-          </Divs.SidebarLinks>
-          <Divs.SidebarLinks>
-            <Divs.DropdownSidebar>
-              <span>
-                <FaIcons.FaDollarSign />
-              </span>
-              <p>Marketing</p>
-              <span>
-                <IoIcons.IoIosArrowDown />
-              </span>
-            </Divs.DropdownSidebar>
-          </Divs.SidebarLinks>
-          <Divs.SidebarLinks>
-            <Divs.DropdownSidebar>
-              <span>
-                <ImCog />
-              </span>
-              <p>Administrador</p>
-              <span>
-                <IoIcons.IoIosArrowDown />
-              </span>
-            </Divs.DropdownSidebar>
-          </Divs.SidebarLinks>
+          {AccordionData.map((item, i) => {
+            return (
+              <Divs.SidebarLinks>
+                <Divs.DropdownSidebar
+                  onClick={() => toggle(i)}
+                  index={item.index}
+                >
+                  <span>{item.icon}</span>
+                  <p>{item.text}</p>
+                  <span>
+                    <IoIcons.IoIosArrowDown />
+                  </span>
+                </Divs.DropdownSidebar>
+                {clicked === i ? (
+                  <div className="accordioncontent show">{item.options}</div>
+                ) : null}
+              </Divs.SidebarLinks>
+            );
+          })}
+          <Divs.Logout>
+            <p>CERRAR SESION</p>
+          </Divs.Logout>
         </div>
       </Side>
       <Prof>
@@ -151,4 +148,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

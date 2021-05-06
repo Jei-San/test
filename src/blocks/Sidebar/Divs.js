@@ -169,7 +169,7 @@ export const DropdownSidebar = styled.div`
   text-decoration: none;
   height: 40px;
   width: 350px;
-  font-size: 23px;
+  font-size: 20px;
   margin-top: 10px;
   color: #5e5e5e;
   font-weight: bolder;
@@ -189,5 +189,17 @@ export const DropdownSidebar = styled.div`
   }
   &:hover {
     color: rgb(0, 225, 255);
+  }
+`;
+
+export const Logout = styled.div`
+  height: 100px;
+  width: 200px;
+  position: absolute;
+  top: 910px;
+  left: 25px;
+  p {
+    cursor: pointer;
+    font-weight: 600;
   }
 `;

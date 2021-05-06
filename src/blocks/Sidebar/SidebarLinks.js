@@ -6,7 +6,7 @@ export const NavLinkSidebar = styled(Link)`
   text-decoration: none;
   height: 40px;
   width: 350px;
-  font-size: 23px;
+  font-size: 20px;
   margin-top: 10px;
   color: #5e5e5e;
   font-weight: bolder;
