@@ -193,7 +193,7 @@ export const DropdownSidebar = styled.div`
 `;
 
 export const Logout = styled.div`
-  height: 100px;
+  height: 20px;
   width: 200px;
   position: absolute;
   top: 910px;
